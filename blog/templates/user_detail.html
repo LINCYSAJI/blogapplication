@@ -1,0 +1,33 @@
+{%extends 'base.html'%}
+{%load static%}
+{%block content%}
+    <h2 class="text-center shadow-lg p-3 mb-5 bg-body-tertiary rounded text-warning-emphasis">User Profile</h2>
+
+    <div class="container-fluid"> 
+        <div class="d-flex align-items-center justify-content-between mb-4 mt-4"> 
+            <h1 class="h3 mb-0 text-gray-800">Profile</h1>
+
+        </div>
+        {%if messages%}
+        {%for message in messages%}
+        <div class="alert alert-{{messages.tags}}" role="alert">{{messages}}</div>
+        {%endfor%}
+        {%endif%}
+        <div class="row">
+            <div class="col-lg-2"></div>
+            <div class="cl-lg-3 my-5">
+                <img src="{{user.profile.profile_image.url}}" class="rounded float-right" height="300px" width="300px">
+            </div>
+            <div class="card o-hidden border-0 shadow-lg my-5 col-lg-5">
+                <div class="card-body"></div>
+                <h2>{{object.user}}</h2>
+                <p><strong>Email:</strong>{{object.email}}</p>
+                <p><strong>bio:</strong>{{author.bio}}</p>
+                <a href="{%url 'edit_profile'%}" class="me-2 link-success link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover"><i class="fa-solid fa-pen-to-square"></i>Edit User Profile</a>
+
+
+            </div>
+        </div>
+   
+
+{%endblock%}

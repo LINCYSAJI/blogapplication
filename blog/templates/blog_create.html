@@ -1,0 +1,29 @@
+{%extends 'base.html'%}
+
+{%block content%}
+
+    <div class="container mt-3">
+        {{user}}
+        <h2 class="text-center shadow-lg p-3 mb-5 bg-body-tertiary rounded text-success">Create Your Blog</h2>
+        <form action="" method="post">
+            {% csrf_token %}
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label">Title</label>
+              {{form.title}}
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputPassword1" class="form-label">Slug</label>
+              {{form.slug}}
+            </div>
+            
+            <div class="mb-3">
+                <label for="exampleFormControlTextarea1" class="form-label">Content</label>
+                {{form.content}}
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+  
+
+</div>
+
+{%endblock content%}
